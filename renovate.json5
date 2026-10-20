@@ -1,0 +1,22 @@
+{
+    "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+    // The shared preset at HEAD of main.
+    "extends": ["github>spnngl/.github:renovate.default.json5"],
+    "customManagers": [
+        {
+            "customType": "jsonata",
+            "description": "Release tags of packages.toml: the tag is the version the repository serves, so a new release of a source repository is a new version here.",
+            "fileFormat": "toml",
+            "managerFilePatterns": ["/^packages\\.toml$/"],
+            "matchStrings": ["package.{ \"depName\": repo, \"currentValue\": tag }"],
+            "datasourceTemplate": "github-releases"
+        }
+    ],
+    "packageRules": [
+        {
+            "description": "Package releases: automerge once CI built the repository and installed the new version on every distribution.",
+            "matchFileNames": ["packages.toml"],
+            "automerge": true
+        }
+    ]
+}

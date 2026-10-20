@@ -23,9 +23,9 @@ jobs:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           persist-credentials: false
-      # renovate: datasource=github-releases depName=nushell/nushell
       - uses: hustcer/setup-nu@95cd3bfe252450ef7d35dd9a7ddecf3484341134 # v3.28
         with:
+          # renovate: datasource=github-releases depName=nushell/nushell
           version: "0.116.1"
       - run: nu scripts/install-test.nu https://spnngl.github.io/linux-packaging "$IMAGE" --key-file keys/spnngl.asc
         env:

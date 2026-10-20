@@ -26,9 +26,9 @@ jobs:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           persist-credentials: false
-      # renovate: datasource=github-releases depName=nushell/nushell
       - uses: hustcer/setup-nu@95cd3bfe252450ef7d35dd9a7ddecf3484341134 # v3.28
         with:
+          # renovate: datasource=github-releases depName=nushell/nushell
           version: "0.116.1"
       - run: sudo apt-get install --yes --no-install-recommends reprepro createrepo-c rpm gnupg
       - if: github.ref == 'refs/heads/main'
@@ -60,9 +60,9 @@ jobs:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           persist-credentials: false
-      # renovate: datasource=github-releases depName=nushell/nushell
       - uses: hustcer/setup-nu@95cd3bfe252450ef7d35dd9a7ddecf3484341134 # v3.28
         with:
+          # renovate: datasource=github-releases depName=nushell/nushell
           version: "0.116.1"
       - uses: actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333 # v8.0.2
         with:

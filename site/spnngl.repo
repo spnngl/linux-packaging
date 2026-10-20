@@ -1,0 +1,7 @@
+[spnngl]
+name=spnngl
+baseurl=https://spnngl.github.io/linux-packaging/rpm
+enabled=1
+gpgcheck=1
+repo_gpgcheck=1
+gpgkey=https://spnngl.github.io/linux-packaging/key.asc

@@ -1,0 +1,8 @@
+Origin: spnngl
+Label: spnngl
+Codename: stable
+Suite: stable
+Architectures: amd64 arm64
+Components: main
+Description: Packages of the spnngl repositories
+SignWith: yes

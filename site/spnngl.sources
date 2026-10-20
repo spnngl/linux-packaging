@@ -1,0 +1,5 @@
+Types: deb
+URIs: https://spnngl.github.io/linux-packaging/deb
+Suites: stable
+Components: main
+Signed-By: /etc/apt/keyrings/spnngl.asc

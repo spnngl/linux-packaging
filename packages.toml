@@ -1,0 +1,13 @@
+# The packages this repository serves, one release of each (PLAN.md, decisions 2 to 4).
+# Renovate bumps `tag` (renovate.json5): keep each tag unique in this file.
+#
+# name:     the deb and rpm package name
+# repo:     GitHub repository whose release holds the .deb and .rpm assets
+# tag:      release tag, `v` followed by the package version
+# workflow: workflow that attested the assets, relative to the repository
+
+[[package]]
+name = "tokenmtr"
+repo = "spnngl/tokenmtr"
+tag = "v0.2.0"
+workflow = ".github/workflows/release.yml"

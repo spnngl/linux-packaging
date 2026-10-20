@@ -1,0 +1,32 @@
+# Installs the packages from the deployed site, to catch what a build never sees: Pages serving a
+# stale or broken site, or a distribution that changed (PLAN.md, decision 13).
+name: live
+
+on:
+  schedule:
+    - cron: "17 5 * * 1"
+  workflow_dispatch:
+
+permissions: {}
+
+jobs:
+  install:
+    strategy:
+      fail-fast: false
+      matrix:
+        runner: [ubuntu-26.04, ubuntu-26.04-arm]
+        image: [debian:testing, ubuntu:26.04, fedora:44, opensuse/tumbleweed]
+    runs-on: ${{ matrix.runner }}
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      # renovate: datasource=github-releases depName=nushell/nushell
+      - uses: hustcer/setup-nu@95cd3bfe252450ef7d35dd9a7ddecf3484341134 # v3.28
+        with:
+          version: "0.116.1"
+      - run: nu scripts/install-test.nu https://spnngl.github.io/linux-packaging "$IMAGE" --key-file keys/spnngl.asc
+        env:
+          IMAGE: ${{ matrix.image }}

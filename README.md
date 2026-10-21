@@ -65,6 +65,13 @@ Add the package to the table above. The pull request's CI proves the contract.
 
 Set up once:
 
+0. Create the public repository, empty: the calls below return 404 until it exists. Push `main` only after step 3, since a build on `main` needs the signing key.
+
+   ```sh
+   gh repo create spnngl/linux-packaging --public
+   git remote add origin git@github.com:spnngl/linux-packaging.git
+   ```
+
 1. Create the environment `signing`, restricted to the `main` branch, and the Pages site built by GitHub Actions:
 
    ```sh

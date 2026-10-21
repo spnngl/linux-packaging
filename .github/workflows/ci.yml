@@ -78,9 +78,22 @@ jobs:
         env:
           IMAGE: ${{ matrix.image }}
 
+  # The one check a ruleset requires for the install matrix, so changing the matrix never
+  # changes the required checks. `always()` because a skipped or failed matrix would otherwise
+  # skip this job, and a skipped required check counts as passed.
+  gate:
+    if: always()
+    needs: install
+    runs-on: ubuntu-26.04
+    permissions: {}
+    steps:
+      - run: test "$RESULT" = success
+        env:
+          RESULT: ${{ needs.install.result }}
+
   deploy:
     if: github.ref == 'refs/heads/main'
-    needs: install
+    needs: gate
     runs-on: ubuntu-26.04
     environment:
       name: github-pages

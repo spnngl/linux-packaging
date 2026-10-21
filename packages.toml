@@ -11,3 +11,9 @@ name = "tokenmtr"
 repo = "spnngl/tokenmtr"
 tag = "v0.3.0"
 workflow = ".github/workflows/release.yml"
+
+[[package]]
+name = "transmission-exporter"
+repo = "spnngl/transmission-exporter"
+tag = "v0.5.0"
+workflow = ".github/workflows/release.yml"

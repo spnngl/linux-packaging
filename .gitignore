@@ -1,2 +1,3 @@
 *.local*
 PLAN*.md
+/out

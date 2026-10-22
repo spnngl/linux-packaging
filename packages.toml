@@ -9,7 +9,7 @@
 [[package]]
 name = "tokenmtr"
 repo = "spnngl/tokenmtr"
-tag = "v0.3.0"
+tag = "v0.4.0"
 workflow = ".github/workflows/release.yml"
 
 [[package]]

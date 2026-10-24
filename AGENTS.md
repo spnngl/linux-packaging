@@ -5,6 +5,7 @@ Read `PLAN.md` before any task: it holds every numbered decision, the phase orde
 ## Rules
 
 - Write agent-facing documents (this file, docs reached by a pointer) per the `writing-for-agents` skill. Each `AGENTS.md` has a `CLAUDE.md` symlink beside it.
+- Give each comment its own reason. `PLAN.md` is local, so only this file names it.
 - Keep logic in `scripts/*.nu`; workflows only call them, so CI and a local run are the same run.
 - Keep one source of truth per fact: packages in `packages.toml`, the public key in `keys/spnngl.asc`, install commands in the `README.md` fences tagged `install-<family>` (`scripts/install-test.nu` runs them verbatim).
 - Commit per phase using the `git-commit` skill; the human pushes. Pull requests fail CI unless every commit subject is a Conventional Commit (`type(scope)!: description`).

@@ -1,6 +1,6 @@
 # Builds the repository from packages.toml, installs every package on each distribution from the
 # built site, and publishes the site from main. A pull request runs the same steps with a key
-# generated on the spot, so it never touches the signing key (PLAN.md, decisions 1 and 8).
+# generated on the spot, so it never touches the signing key.
 name: ci
 
 on:

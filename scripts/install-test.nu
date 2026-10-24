@@ -2,7 +2,7 @@
 
 # Installs every package of packages.toml from the repository <site> in a fresh <image> container,
 # with the commands of README.md (the fences tagged `install-<family>`), and checks each installed
-# version against the manifest (PLAN.md, decisions 9 and 13).
+# version against the manifest.
 #
 # <site> is a directory, served here by a container on a private network, or a base URL, used
 # as-is. A directory is built for the public URL, so its two repository files and the README

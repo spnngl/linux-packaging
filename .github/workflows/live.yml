@@ -1,5 +1,5 @@
 # Installs the packages from the deployed site, to catch what a build never sees: Pages serving a
-# stale or broken site, or a distribution that changed (PLAN.md, decision 13).
+# stale or broken site, or a distribution that changed.
 name: live
 
 on:

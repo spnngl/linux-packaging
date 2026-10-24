@@ -2,7 +2,7 @@
 
 # Builds the signed APT and RPM repository of `packages.toml` into <out>, ready for GitHub Pages.
 # Needs a current gh (authenticated: GH_TOKEN; the one of Ubuntu is too old for `attestation verify
-# --signer-workflow`), reprepro, createrepo-c, rpm, gnupg (PLAN.md, decisions 3 to 7).
+# --signer-workflow`), reprepro, createrepo-c, rpm, gnupg.
 # Run from the repository root, on ubuntu:26.04 as in CI.
 
 const deb_arches = ["amd64" "arm64"]
@@ -50,7 +50,7 @@ def fetch-package [pkg: record, dir: path] {
   let release = $"($pkg.repo)@($pkg.tag)"
   let version = ($pkg.tag | str replace --regex '^v' "")
 
-  # Decision 4: an immutable release never changes under a pinned tag.
+  # An immutable release never changes under a pinned tag.
   if (^gh api $"repos/($pkg.repo)/releases/tags/($pkg.tag)" --jq .immutable | str trim) != "true" {
     fail $"($release) is not an immutable release"
   }
@@ -60,7 +60,7 @@ def fetch-package [pkg: record, dir: path] {
   let debs = (glob $"($dir)/*.deb" | sort)
   let rpms = (glob $"($dir)/*.rpm" | sort)
 
-  # Decision 3: built by the release workflow of that repository at that tag.
+  # The release workflow of that repository must have built each asset at that tag.
   for file in ($debs ++ $rpms) {
     ^gh attestation verify $file --repo $pkg.repo --signer-workflow $"($pkg.repo)/($pkg.workflow)" --source-ref $"refs/tags/($pkg.tag)"
   }
@@ -123,7 +123,7 @@ def main [
 
   let fingerprint = (load-key $throwaway)
   if not $throwaway {
-    # Decision 7: keys/spnngl.asc is the single source of truth for the public key.
+    # keys/spnngl.asc is the single source of truth for the public key.
     let published = (file-fingerprint "keys/spnngl.asc")
     if $published != $fingerprint {
       fail $"the signing key ($fingerprint) is not keys/spnngl.asc ($published)"

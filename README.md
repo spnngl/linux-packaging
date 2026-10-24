@@ -6,6 +6,7 @@ Signed APT and RPM repository of the spnngl packages, served from GitHub Pages a
 | --- | --- | --- |
 | `tokenmtr` | [spnngl/tokenmtr](https://github.com/spnngl/tokenmtr) | glibc 2.43 or newer (Ubuntu 26.04, Debian testing, Fedora 44, openSUSE Tumbleweed); `amd64`/`x86_64` and `arm64`/`aarch64` |
 | `transmission-exporter` | [spnngl/transmission-exporter](https://github.com/spnngl/transmission-exporter) | Static binary, no dependency; `amd64`/`x86_64` and `arm64`/`aarch64` |
+| `artifacthub-exporter` | [spnngl/artifacthub-exporter](https://github.com/spnngl/artifacthub-exporter) | Static binary, no dependency; `amd64`/`x86_64` and `arm64`/`aarch64` |
 
 Each package states what it needs: older distributions refuse the install.
 

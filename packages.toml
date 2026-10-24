@@ -17,3 +17,9 @@ name = "transmission-exporter"
 repo = "spnngl/transmission-exporter"
 tag = "v0.5.0"
 workflow = ".github/workflows/release.yml"
+
+[[package]]
+name = "artifacthub-exporter"
+repo = "spnngl/artifacthub-exporter"
+tag = "v0.1.0"
+workflow = ".github/workflows/release.yml"

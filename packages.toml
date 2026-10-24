@@ -1,5 +1,5 @@
 # The packages this repository serves, one release of each (PLAN.md, decisions 2 to 4).
-# Renovate bumps `tag` (renovate.json5): keep each tag unique in this file.
+# Renovate bumps `tag` (renovate.json5).
 #
 # name:     the deb and rpm package name
 # repo:     GitHub repository whose release holds the .deb and .rpm assets

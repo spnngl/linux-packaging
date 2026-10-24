@@ -4,11 +4,11 @@ Signed APT and RPM repository of the spnngl packages, served from GitHub Pages a
 
 | Package | Source | Needs |
 | --- | --- | --- |
-| `tokenmtr` | [spnngl/tokenmtr](https://github.com/spnngl/tokenmtr) | glibc 2.43 or newer (Ubuntu 26.04, Debian testing, Fedora 44, openSUSE Tumbleweed); `amd64`/`x86_64` and `arm64`/`aarch64` |
-| `transmission-exporter` | [spnngl/transmission-exporter](https://github.com/spnngl/transmission-exporter) | Static binary, no dependency; `amd64`/`x86_64` and `arm64`/`aarch64` |
-| `artifacthub-exporter` | [spnngl/artifacthub-exporter](https://github.com/spnngl/artifacthub-exporter) | Static binary, no dependency; `amd64`/`x86_64` and `arm64`/`aarch64` |
+| `tokenmtr` | [spnngl/tokenmtr](https://github.com/spnngl/tokenmtr) | glibc 2.43 or newer (Ubuntu 26.04, Debian testing, Fedora 44, openSUSE Tumbleweed) |
+| `transmission-exporter` | [spnngl/transmission-exporter](https://github.com/spnngl/transmission-exporter) | Nothing: static binary |
+| `artifacthub-exporter` | [spnngl/artifacthub-exporter](https://github.com/spnngl/artifacthub-exporter) | Nothing: static binary |
 
-Each package states what it needs: older distributions refuse the install.
+Every package ships for `amd64`/`x86_64` and `arm64`/`aarch64`, and states what it needs: older distributions refuse the install.
 
 ## Install
 
@@ -23,7 +23,7 @@ sudo curl -fsSL https://spnngl.github.io/linux-packaging/spnngl.sources -o /etc/
 sudo apt update
 ```
 
-Then `sudo apt install tokenmtr`.
+Then `sudo apt install <package>`.
 
 ### Fedora
 
@@ -31,7 +31,7 @@ Then `sudo apt install tokenmtr`.
 sudo curl -fsSL https://spnngl.github.io/linux-packaging/spnngl.repo -o /etc/yum.repos.d/spnngl.repo
 ```
 
-Then `sudo dnf install tokenmtr`. dnf asks once to import the key.
+Then `sudo dnf install <package>`. dnf asks once to import the key.
 
 ### openSUSE
 
@@ -40,7 +40,7 @@ sudo zypper addrepo --refresh https://spnngl.github.io/linux-packaging/spnngl.re
 sudo zypper --gpg-auto-import-keys refresh
 ```
 
-Then `sudo zypper install tokenmtr`.
+Then `sudo zypper install <package>`.
 
 ## Trust
 
